@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stroyportal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="header__top-inner">
+                    <div class="header__city">
+                        <a href="#">Волгоградская область</a>
+
+                    </div>
+                    <ul class="menu__list">
+                        <li class="menu__list-item">
+                            <a href="#">Тендеры</a>
+                        </li>
+                        <li class="menu__list-item">
+                            <a href="#">База подрядчиков</a>
+                        </li>
+                        <li class="menu__list-item item">
+                            <a class="dif-serv" href="#">Другие сервисы</a>
+                            <ul class="menu__list-drop">
+                                <li>
+                                    <a href="#">Самосвал</a>
+                                </li>
+                                <li>
+                                    <a href="#">Танк</a>
+                                </li>
+                                <li>
+                                    <a href="#">Кран</a>
+                                </li>
+                                <li>
+                                    <a href="#">Тягач</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header__bottom">
+            <div class="container">
+                <div class="header__bottom-inner">
+                    <a class="header-logo" href="#">
+                        <img class="logo" src="images/logo.png">
+                    </a>
+                    <div class="header__catalog">
+                        <a href="#">
+                            <div class="catalog__menu">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <span>Каталог</span>
+                        </a>
+                    </div>
+                    <div class="header__search">
+                        <form>
+                            <div id="app">
+                                <div class="autocomplete">
+                                    <input @blur="onBlur=true" @focus="onFocus = true;onBlur = false;"
+                                        v-model="autocomplete" @keyDown="keyDown" type="text" name="autoomplete" placeholder="Хочу найти..." required>
+                                    <div class="autocomplete-items">
+
+                                        <div :class="currentFocus == index ? 'autocomplete-active' : ''"
+                                            v-for="(i, index) in arr"
+                                            v-if="onFocus && i.substr(0, autocomplete.length).toUpperCase() == autocomplete.toUpperCase()"
+                                            @click="autocomplete = i; onFocus = false;">
+                                            <strong>{{i.substr(0, autocomplete.length)}}</strong>{{i.substr(autocomplete.length)}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <span>
+                                    <img src="images/search.svg">
+                                </span>
+                            </a>
+                        </form>
+                    </div>
+                    <div class="header__list">
+                        <a href="#">
+                            <div class="header__list-img">
+                                <img src="images/list.svg">
+                            </div>
+                            <span>Список</span>
+                        </a>
+                    </div>
+                    <a class="header__link" href="#">А</a>
+                    <div class="burger-menu">
+                        <div class="first"></div>
+                        <div class="second"></div>
+                        <div class="third"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/libs.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
